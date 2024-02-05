@@ -1,0 +1,41 @@
+### Get all knights
+
+GET http://localhost:8081/api/knights
+
+### Get single knight
+
+GET http://localhost:8081/api/knights/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0
+
+### Get single knight - 404 NOT FOUND
+
+GET http://localhost:8081/api/knights/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+### Get order knights
+
+GET http://localhost:8081/api/orders/5d1da2ae-6a14-4b6d-8b4f-d117867118d4/knights
+
+### Get order knights, not existing
+
+GET http://localhost:8081/api/orders/ac4e2683-b2ba-4695-94d9-806a97fce71e/knights
+
+### Create new knight
+
+PUT http://localhost:8081/api/knights/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Hanz von Hamburg",
+  "age": 18,
+  "strength": 120,
+  "health": 1,
+  "order": "5d1da2ae-6a14-4b6d-8b4f-d117867118d4"
+}
+
+### Delete knight.
+
+DELETE http://localhost:8081/api/knights/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+### Delete order
+
+DELETE http://localhost:8081/api/orders/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76

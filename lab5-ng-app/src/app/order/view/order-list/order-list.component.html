@@ -1,0 +1,25 @@
+<header><h2>Orders</h2></header>
+
+<table *ngIf="orders" class="table table-bordered table-hover text-center">
+  <thead class="thead-light">
+  <tr>
+    <th>Order name</th>
+    <th>View details</th>
+    <th>Delete order</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders.orders">
+    <td>{{order.name}}</td>
+    <td>
+      <button class="btn btn-dark">
+        <a [routerLink]="['/orders', order.id]">Details</a>
+      </button>
+
+    </td>
+    <td>
+      <button class="btn btn-dark" (click)="onDelete(order)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

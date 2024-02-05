@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  knight:
+    image: knight-dk
+    restart: always
+
+  order:
+    image: order-dk
+    restart: always
+    environment:
+      KNIGHT_URL: "http://knight:8080"
+
+  gateway-app:
+    image: gateway-app-dk
+    restart: always
+    environment:
+      KNIGHT_URL: "http://knight:8080"
+      ORDER_URL: "http://order:8080"
+      GATEWAY_HOST: "gateway-app:8080"
+
+  lab5-ng-app:
+    image: lab5-ng-app-dk
+    restart: always
+    environment:
+      API_URL: http://gateway-app:8080/api
+    ports:
+      - "8088:80"

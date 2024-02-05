@@ -1,0 +1,28 @@
+<article *ngIf="order">
+  <header><h2>{{order.name}}</h2></header>
+
+
+  <table *ngIf="knights" class="table table-bordered table-hover text-center">
+    <thead class="thead-light">
+    <tr>
+      <th>Name</th>
+      <th>Knight details</th>
+      <th>Delete knight</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let knight of knights.knights">
+      <td>{{knight.name}}</td>
+      <td>
+        <button class="btn btn-dark">
+          <a [routerLink]="['/knights', knight.id]">Details</a>
+        </button>
+
+      </td>
+      <td>
+        <button class="btn btn-dark" (click)="onDelete(knight)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</article>
